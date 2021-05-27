@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const router = require("./routes/index")
 const mongoose = require('mongoose')
 const morgan = require('morgan')
 const cors = require('cors')
@@ -18,6 +19,7 @@ mongoose
 
     app.use(express.json())
     app.use(cors())
+    app.use("/api",router)
     app.use(morgan('combined'))
 
     app.listen( process.env.PORT, (err) => {
