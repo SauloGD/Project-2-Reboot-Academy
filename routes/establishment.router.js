@@ -24,4 +24,22 @@ function auth(req, res, next) {
     })
   }
   
+  /*function admin(req, res, next) {
+
+    jwt.verify(
+      req.headers.token, 
+      process.env.SECRET, 
+      (err, insideToken) => {
+        if (err) res.json('Token not valid')
+        console.log(req.headers.admin)
+        if (req.headers.admin === true){
+            res.locals.id = insideToken.id
+        }else{
+            console.log('No eres Admin')   
+        }
+        next()
+    })
+  }*/
+
+
   module.exports = establishmentRouter
