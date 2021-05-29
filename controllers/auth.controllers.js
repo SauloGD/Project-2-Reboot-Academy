@@ -34,8 +34,9 @@ function signup(req, res) {
       .then((user) => {
 
         const insideToken = {
-          userName: userName.name,
+          userName: user.userName,
           id: user._id,
+          admin: user.admin,
           userEmail: user.userEmail
         }
 
@@ -47,7 +48,8 @@ function signup(req, res) {
         const resUser = {
           id: user._id,
           userName: user.userName,
-          userEmail: userEmail.email,
+          userEmail: user.userEmail,
+          admin: user.admin,
           token: token
         }
 
@@ -79,6 +81,7 @@ function login(req, res) {
           const insideToken = {
             userName: user.userName,
             userEmail: user.userEmail,
+            admin: user.admin,
             id: user._id
           }
           const token = jwt.sign(
@@ -89,6 +92,7 @@ function login(req, res) {
           resUser = {
             userName: user.userName,
             userEmail: user.userEmail,
+            admin: user.admin,
             id: user._id,
             token: token
           }

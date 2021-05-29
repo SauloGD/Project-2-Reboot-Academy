@@ -1,17 +1,15 @@
 const mongoose = require('mongoose')
+const {categoryModel, categorySchema} = require('./category.model')
 
 const establishmentSchema = new mongoose.Schema({
     establishmentName : {
         type : String,
         require : [true, 'Establishment Name is required']
     },
-    category : {
-        type : mongoose.Schema.Types.ObjectId,
-        ref : 'category'
-    },
+    category : [categorySchema],
     fiscalId : {
-        type : String, //Duda
-        require : [true, 'fiscal id is required']
+        type : String,
+        require : [true, 'Fiscal id is required']
     },
     location : {
         type : String,

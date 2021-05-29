@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const categorySchema = new mongoose.Schema({
     categoryType : {
         type : String,
-        enum : [hotel, stadiums, theaters, party, cinema, gyms, restaurants]
+        enum : ['hotel', 'stadiums', 'theaters', 'party', 'cinema', 'gyms', 'restaurants']
     },
     tags : {
         type : Array,
@@ -16,5 +16,6 @@ const categorySchema = new mongoose.Schema({
 
 })
 
+
 const categoryModel = mongoose.model('category', categorySchema)
-module.exports = categoryModel
+module.exports = {categoryModel, categorySchema}
