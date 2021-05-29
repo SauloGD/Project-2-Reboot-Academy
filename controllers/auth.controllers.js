@@ -66,13 +66,13 @@ function login(req, res) {
     }
   */
 
-  userModel.findOne({ email: req.body.email })
+  userModel.findOne({ userEmail: req.body.userEmail })
     .then((user) => {
       if (!user) res.json('Wrong email')
 
       bcrypt.compare(
-        req.body.pwd, 
-        user.pwd, 
+        req.body.userPwd, 
+        user.userPwd, 
         (err, result) => {
           if (err) res.json('Wrong password')
           
@@ -87,7 +87,7 @@ function login(req, res) {
           )
 
           resUser = {
-            userName: userName.name,
+            userName: user.userName,
             userEmail: user.userEmail,
             id: user._id,
             token: token
