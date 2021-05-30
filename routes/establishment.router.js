@@ -11,6 +11,8 @@ establishmentRouter.get('/:establishmentId', auth, readOneEstablishment)
 establishmentRouter.delete('/:establishmentId', auth, admin,  deleteEstablishmentById)
 establishmentRouter.put('/:establishmentId', auth, admin, updateEstablishmentById)
 establishmentRouter.get('/:establishmentId/category',auth, readOneCategory)
+establishmentRouter.put('/:establishmentId/category',auth, updateCategoryById)
+
 
 
 

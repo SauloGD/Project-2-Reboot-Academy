@@ -2,9 +2,11 @@ const {categoryModel, categorySchema} = require('../models/category.model')
 const establishmentModel = require('../models/establishment.model')
 
 function updateCategoryById (req,res){
-    categoryModel.findByIdAndUpdate(req.params.categoryId, req.body , {new : true})
-    .then ((category) => {
-        res.json(category)
+    establishmentModel.findById(req.params.establishmentId)
+    .then ((establishment) => {
+        establishment.category.tags = req.body.tags ? req.body.tags : establishment.category.tags
+        .save()
+        res.json(establishment.category)
     })
     .catch((err) => {
         res.json(err)
@@ -21,5 +23,7 @@ function readOneCategory (req, res){
         res.json(err)
     })
 }
+
+
 
 module.exports = {updateCategoryById, readOneCategory}
