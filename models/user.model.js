@@ -61,7 +61,11 @@ const userSchema = new mongoose.Schema({
     userPwd : {
         type : 'String',
         require : [true, 'Password is required']
-    }
+    },
+    promotionId : [{
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'promotion'
+    }]
 })
 
 

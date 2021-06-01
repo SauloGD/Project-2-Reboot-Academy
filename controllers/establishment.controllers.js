@@ -1,5 +1,5 @@
 const establishmentModel = require('../models/establishment.model')
-
+const {titleCase, findSites} = require('../Try')
 
 //              Users
 
@@ -60,5 +60,19 @@ function updateEstablishmentById (req,res){
     })
 }
 
+//                  Query
 
-module.exports = {createEstablishment, readOneEstablishment, getAllestablishment, deleteEstablishmentById, updateEstablishmentById}
+function filterEstablishmentByLocation (req,res){
+    var minusculas = req.query.location.toLowerCase()
+    var fooArray = findSites(minusculas)
+    establishmentModel.find({location : fooArray})
+    .then ((establishment) => {
+        res.json(establishment)
+    })
+    .catch((err) => {
+        res.json(err)
+    })
+}
+
+
+module.exports = {createEstablishment, readOneEstablishment, getAllestablishment, deleteEstablishmentById, updateEstablishmentById, filterEstablishmentByLocation}

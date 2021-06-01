@@ -1,4 +1,5 @@
 const { json } = require('express')
+const { populate } = require('../models/booking.model')
 const bookingModel = require('../models/booking.model')
 
 function createBooking(req,res){
@@ -23,6 +24,8 @@ function deleteBooking(req,res){
 
 function getOneBookingByAdmin (req, res){
     bookingModel.findById(req.params.bookingId)
+    .populate("userId")
+    .populate("establishmentId")
     .then ((booking) => {
        res.json(booking)
     })
@@ -34,6 +37,8 @@ function getOneBookingByAdmin (req, res){
 
 function getAllBookingByAdmin (req, res){
     bookingModel.find()
+    .populate("userId")
+    .populate("establishmentId")
     .then ((booking) => {
        res.json(booking)
     })
@@ -44,6 +49,7 @@ function getAllBookingByAdmin (req, res){
 
 function getOneBookingByUser (req, res){
     bookingModel.findById(req.params.bookingId)
+    
     .then ((booking) => {
        if(booking.userId._id.toString() === res.locals.id){
         res.json(booking)
@@ -68,5 +74,27 @@ function getAllBookingByUser (req, res){
 
 
 
+//          Query
 
-module.exports = {createBooking, deleteBooking, getOneBookingByAdmin, getAllBookingByAdmin, getOneBookingByUser, getAllBookingByUser}
+function filterUserBookingByDateandCheckInComplete (req, res){
+    bookingModel.find({userId : res.locals.id , date : {$eq : req.query.date} , checkInComplete : {$eq : req.query.checkInComplete}})
+    .then ((booking) => {
+       res.json(booking)
+    })
+    .catch((err) => {
+        res.json(err)
+    })
+}
+
+function filterUserBookingByDate (req, res){
+    bookingModel.find({userId : res.locals.id , date : req.query.date})
+    .then ((booking) => {
+       res.json(booking)
+    })
+    .catch((err) => {
+        res.json(err)
+    })
+}
+
+
+module.exports = {createBooking, deleteBooking, getOneBookingByAdmin, getAllBookingByAdmin, getOneBookingByUser, getAllBookingByUser, filterUserBookingByDateandCheckInComplete, filterUserBookingByDate}

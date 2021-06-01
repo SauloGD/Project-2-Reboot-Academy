@@ -3,16 +3,16 @@ const establishmentRouter = require('express').Router()
 
 
 const {updateCategoryById, readOneCategory} = require('../controllers/category.controllers')
-const { createEstablishment, readOneEstablishment, getAllestablishment, deleteEstablishmentById, updateEstablishmentById} = require('../controllers/establishment.controllers')
+const { createEstablishment, readOneEstablishment, getAllestablishment, deleteEstablishmentById, updateEstablishmentById, filterEstablishmentByLocation} = require('../controllers/establishment.controllers')
 
 establishmentRouter.post('/', auth, admin, createEstablishment)
 establishmentRouter.get('/', auth, getAllestablishment)
+establishmentRouter.get('/filterL',auth, filterEstablishmentByLocation)
 establishmentRouter.get('/:establishmentId', auth, readOneEstablishment)
 establishmentRouter.delete('/:establishmentId', auth, admin,  deleteEstablishmentById)
 establishmentRouter.put('/:establishmentId', auth, admin, updateEstablishmentById)
 establishmentRouter.get('/:establishmentId/category',auth, readOneCategory)
 establishmentRouter.put('/:establishmentId/category',auth, updateCategoryById)
-
 
 
 

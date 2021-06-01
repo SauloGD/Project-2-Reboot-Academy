@@ -2,8 +2,9 @@ const userModel = require('../models/user.model')
 
 //                      Admin
 
-function readOneUserByAdmin (req, res){
+function readOneUserByAdmin (req, res){ 
     userModel.findById(req.params.userId)
+    .populate("promotionId")
     .then ((user) => {
        res.json(user)
     })
@@ -41,6 +42,7 @@ function getAllUsersByAdmin (req,res){
 function readMyUser (req, res){
     console.log(res.locals)
     userModel.findById(res.locals.id)
+    .populate("promotionId")
     .then ((user) => {
        res.json(user)
     })

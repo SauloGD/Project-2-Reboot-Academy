@@ -1,14 +1,17 @@
 const jwt = require('jsonwebtoken')
 const bookingRouter = require('express').Router()
 
-const {createBooking, deleteBooking, getOneBookingByAdmin, getAllBookingByAdmin, getOneBookingByUser, getAllBookingByUser} = require('../controllers/booking.controllers')
+const {createBooking, deleteBooking, getOneBookingByAdmin, getAllBookingByAdmin, getOneBookingByUser, getAllBookingByUser, filterUserBookingByDateandCheckInComplete, filterUserBookingByDate} = require('../controllers/booking.controllers')
 
 bookingRouter.post("/", createBooking)
 bookingRouter.delete("/:bookingId", deleteBooking)
 bookingRouter.get("/", getAllBookingByAdmin)
 bookingRouter.get("/me", auth, getAllBookingByUser)
 bookingRouter.get("/:bookingId", getOneBookingByAdmin)
+bookingRouter.get("/me/filterIC", auth, filterUserBookingByDateandCheckInComplete)
+bookingRouter.get("/me/filter", auth, filterUserBookingByDate)
 bookingRouter.get("/me/:bookingId", auth, getOneBookingByUser)
+
 
 
 

@@ -13,7 +13,8 @@ const establishmentSchema = new mongoose.Schema({
     },
     location : {
         type : String,
-        require : [true, 'Location is required']
+        require : [true, 'Location is required'],
+        enum : ["Agaete","Agüimes","Artenara","Arucas","Firgas","Gáldar","Ingenio","La Aldea de San Nicolás","Las Palmas de Gran Canaria","Mogán","Moya","San Bartolomé de Tirajana","Santa Brígida","Santa Lucía de Tirajana","Santa María de Guía de Gran Canaria","Tejeda","Telde","Teror","Valleseco","Valsequillo de Gran Canaria", "Vega de San Mateo"]
     },
     capacity : {
         type : Number,
