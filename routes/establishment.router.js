@@ -1,14 +1,18 @@
 const jwt = require('jsonwebtoken')
 const establishmentRouter = require('express').Router()
 
-const { createEstablishment, readOneEstablishment, getAllestablishment, deleteEstablishmentById, updateEstablishmentById} = require('../controllers/establishment.controllers')
 
-establishmentRouter.post('/', auth, createEstablishment)
+const {updateCategoryById, readOneCategory} = require('../controllers/category.controllers')
+const { createEstablishment, readOneEstablishment, getAllestablishment, deleteEstablishmentById, updateEstablishmentById, filterEstablishmentByLocation} = require('../controllers/establishment.controllers')
+
+establishmentRouter.post('/', auth, admin, createEstablishment)
 establishmentRouter.get('/', auth, getAllestablishment)
+establishmentRouter.get('/filterL',auth, filterEstablishmentByLocation)
 establishmentRouter.get('/:establishmentId', auth, readOneEstablishment)
-establishmentRouter.delete('/:establishmentId', auth, deleteEstablishmentById)
-establishmentRouter.put('/:establishmentId', auth, updateEstablishmentById)
-
+establishmentRouter.delete('/:establishmentId', auth, admin,  deleteEstablishmentById)
+establishmentRouter.put('/:establishmentId', auth, admin, updateEstablishmentById)
+establishmentRouter.get('/:establishmentId/category',auth, readOneCategory)
+establishmentRouter.put('/:establishmentId/category',auth, updateCategoryById)
 
 
 
@@ -24,22 +28,23 @@ function auth(req, res, next) {
     })
   }
   
-  /*function admin(req, res, next) {
+function admin(req, res, next) {
 
-    jwt.verify(
-      req.headers.token, 
-      process.env.SECRET, 
-      (err, insideToken) => {
-        if (err) res.json('Token not valid')
-        console.log(req.headers.admin)
-        if (req.headers.admin === true){
-            res.locals.id = insideToken.id
+  jwt.verify(
+    req.headers.token, 
+    process.env.SECRET, 
+    (err, insideToken) => {
+      if (err) res.json('Token not valid')
+      console.log(insideToken.admin)
+      if (insideToken.admin === true){
+          res.locals.id = insideToken.id
+          next()
         }else{
-            console.log('No eres Admin')   
+          res.json('No eres Admin')   
         }
-        next()
-    })
-  }*/
+  })
+}
 
 
   module.exports = establishmentRouter
+

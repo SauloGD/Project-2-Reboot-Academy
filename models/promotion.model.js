@@ -1,10 +1,11 @@
 const mongoose = require('mongoose')
 
 const promotionSchema = new mongoose.Schema({
-    establishmentId : {
+    establishmentId : [{
         type : mongoose.Schema.Types.ObjectId,
-        ref : 'establishment'
-    },
+        ref : 'establishment',
+        require: [true, 'At least one establishment is require']
+    }],
     promotionType : {
         type : String,
         require : [true, 'Promotion type is required']
@@ -16,6 +17,10 @@ const promotionSchema = new mongoose.Schema({
     promotionMaturityDate : {
         type : Date,
         require : [true, 'Promotion maturity date is required']
+    },
+    description : {
+        type : String,
+        require : [true, 'Description is required']
     }
 })
 
