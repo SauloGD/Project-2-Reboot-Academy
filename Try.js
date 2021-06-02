@@ -21,3 +21,10 @@ function findSites (filter){
 }
 
 module.exports = {titleCase, findSites}
+
+
+
+
+//({$and : [$or : [{location: fooArray}, {"category.categoryType": req.query.categoryType},{"category.tags": { $in: req.query.tags }}],  $or : [{location: fooArray}, {"category.categoryType": req.query.categoryType}], {location: fooArray}]})
+
+//{ {location: fooArray}, {"category.categoryType": req.query.categoryType}, {"category.tags": { $in: req.query.tags } }}
