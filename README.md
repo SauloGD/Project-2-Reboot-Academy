@@ -2,7 +2,7 @@
 
 # Check-in App
 
-To use this repositori you have to:
+To use this repository you have to:
 
 - Fork it.
 - npm i
