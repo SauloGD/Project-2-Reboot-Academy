@@ -1,10 +1,10 @@
 # Project-2-Reboot-Academy
 
-### Check-in App
+# Check-in App
 
 ## Routes
 
-# User
+### User
 
 All routes start with /api
 
