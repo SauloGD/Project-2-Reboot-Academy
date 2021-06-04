@@ -66,6 +66,7 @@ function updateEstablishmentById(req, res) {
 function filterEstablishmentByLocation(req, res) {
 
     let query = [];
+
     if (req.query.location) query.push({ location: {$regex : req.query.location, $options : "i"}})
     if (req.query.categoryType) query.push({ "category.categoryType" : {$regex : req.query.categoryType, $options : "i"}})
     if (req.query.tags) query.push({ "category.tags" : { $in: req.query.tags }})
