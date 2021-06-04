@@ -35,9 +35,17 @@ function readOnePromotionByUser (req, res){
       })
     .then ((user) => {
         user.promotionId.forEach((elem) => {
-            console.log(elem , req.params.promotionId)
             if (elem._id.toString() === req.params.promotionId){
-                res.json(elem)
+                console.log(elem)
+                var result = {
+                    "establishmentName" : elem.establishmentId[0].establishmentName,
+                    "categoryType" : elem.establishmentId[0].category[0].categoryType,
+                    "promotionType" : elem.promotionType,
+                    "promotionDiscount" : elem.promotionDiscount,
+                    "promotionMaturityDate" : elem.promotionMaturityDate,
+                    "description" : elem.description
+                }
+                res.json(result)
             } 
         })
        res.json("This promotion dont exist")

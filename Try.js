@@ -28,3 +28,9 @@ module.exports = {titleCase, findSites}
 //({$and : [$or : [{location: fooArray}, {"category.categoryType": req.query.categoryType},{"category.tags": { $in: req.query.tags }}],  $or : [{location: fooArray}, {"category.categoryType": req.query.categoryType}], {location: fooArray}]})
 
 //{ {location: fooArray}, {"category.categoryType": req.query.categoryType}, {"category.tags": { $in: req.query.tags } }}
+
+/*"categoryType" : elem.establishmentId.category.categoryType,
+"promotionType" : elem.promotionType,
+"promotionDiscount" : elem.promotionDiscount,
+"promotionMaturityDate" : elem.promotionMaturityDate,
+"description" : elem.description*/
