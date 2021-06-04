@@ -11,9 +11,96 @@ To use this repository you have to:
 
 ## Model
 
-(<a href="https://ibb.co/jWRX6BM"><img src="https://i.ibb.co/NmSBVQj/Reboot-Proyect-2-Model.png" alt="Reboot-Proyect-2-Model" border="0"></a>)
+
+<a href="https://ibb.co/jWRX6BM"><img src="https://i.ibb.co/NmSBVQj/Reboot-Proyect-2-Model.png" alt="Reboot-Proyect-2-Model" border="0"></a>
+
+### User Collection
+  
+| Field                 | Type     | Required | Validation | Default | Description              |
+|-----------------------|----------|----------|------------|---------|--------------------------|
+| userId                | ObjectId |    yes   |      -     |    -    |          User Id         |
+| userName              |  string  |    yes   |      -     |    -    |         User Name        |
+| userSurname           |  string  |    yes   |      -     |    -    |       User Surname       |
+| userPwd               |  String  |    yes   |      -     |    -    |       User Password      |
+| userDNI               |  String  |    yes   |      -     |    -    |         User DNI         |
+| userDNIExpirationDate |   date   |    yes   |      -     |    -    | User DNI Expiration date |
+| userEmail             |  string  |    yes   |      -     |    -    |        User Email        |
+| phoneNumber           |  number  |    yes   |      -     |    -    |     User Phone Number    |
+| COVIDPassport         |  Boolean |    yes   |      -     |    -    |    User Covid Passport   |
+| nationality           |  string  |    yes   |      -     |    -    |        Nationality       |
+| dateOfBirth           |   date   |    yes   |      -     |    -    |       Date of Birth      |
+| adress                |  string  |    yes   |      -     |    -    |        User Adress       |
+| gender                |  string  |    yes   |      -     |    -    |        User Gender       |
+| photo                 |  string  |    no    |      -     |   link  |        User Photo        |
+| admin                 |  boolean |    yes   |      -     |  FALSE  |  User Admin (true/false) |
 
 
+### Establishment Collection
+
+| Field                               | Type            | Required | Validation | Default | Description        |
+|-------------------------------------|-----------------|----------|------------|---------|--------------------|
+| establishmentId                     | ObjectId        | yes      | -          | -       | Establishment Id   |
+| estabishmentName                    | String          | yes      | -          | -       | Establishment Name |
+| category (embebida de la categoría) | Array (Embebed) | yes      | -          | -       | Category           |
+| fiscalId                            | ObjectId        | yes      | -          | -       | Fiscal Id          |
+| location                            | String          | yes      | -          | -       | Location           |
+| capacity                            | Number          | yes      | -          | -       | Capacity           |
+| phoneNumber                         | Number          | yes      | -          | -       | Phone Number       |
+| contacPerson                        | String          | yes      | -          | -       | Contact Person     |
+| schedule                            | String          | yes      | -          | -       | Schedule           |
+|                                     |                 |          |            |         |                    
+
+
+### Booking Collection
+
+| Field           | Type     | Required | Validation | Default | Description        |
+|-----------------|----------|----------|------------|---------|--------------------|
+| bokingId        | ObjectId | yes      | -          | -       | Booking Id         |
+| establishmentId | ObjectId | yes      | -          | -       | Establishment      |
+| date            | Date     | yes      | -          | -       | Booking Date       |
+| email           | String   | yes      | -          | -       | Booking email      |
+| userID          | ObjectId | yes      | -          | -       | User Id            |
+| covid test      | String   | no       | -          | -       | Covid Test         |
+| checkInComplete | Boolean  | no       | -          | -       | Check In Completed |
+|                 |          |          |            |         |                    |
+
+### Official Register Collection
+
+| Field        | Type     | Required | Validation | Default | Description                     |
+|--------------|----------|----------|------------|---------|---------------------------------|
+| bookings     | ObjectId | yes      | -          | -       | Bookings                        |
+| dataSent     | String   | yes      | -          | -       | Data Sent                       |
+| peopleNumber | Number   | yes      | -          | -       | Number of people in the Booking |
+| date         | Date     | yes      | -          | -       | date                            |
+| policeOficce | String   | yes      | -          | -       | Police Office                   |
+|              |          |          |            |         |                                 |
+
+### Promotion Collection
+
+| Field                 | Type     | Required | Validation | Default | Description             |
+|-----------------------|----------|----------|------------|---------|-------------------------|
+| establishmentId       | ObjectId | yes      | -          | -       | Establishment Id        |
+| PromotionType         | String   | yes      | -          | -       | Promotion Type          |
+| promotionDiscount     | String   | yes      | -          | -       | Promotion Discount      |
+| promotionMaturityDate | Date     | yes      | -          | -       | Promotion Maturity Date |
+|                       |          |          |            |         |                         |
+
+
+### Category Collection
+
+| Field        | Type   | Required | Validation | Default | Description | enum        |
+|--------------|--------|----------|------------|---------|-------------|-------------|
+| categoryType | string |   yes   | -          | -       | -           | hotel       |
+|              |        |          |            |         |             | stadiums    |
+|              |        |          |            |         |             | theaters    |
+|              |        |          |            |         |             | parties     |
+|              |        |          |            |         |             | cinema      |
+|              |        |          |            |         |             | gyms        |
+|              |        |          |            |         |             | restaurants |
+|              |        |          |            |         |             |             |
+| tags         | string | -        | -          | -       | -           | -           |
+| description  | string | -        | -          | -       | -           | -           |
+|              |        |          |            |         |             |             |
 
 ## Routes
 
