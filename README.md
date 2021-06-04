@@ -47,6 +47,8 @@ All routes starts with /api
 
 ### Official Register
 
+|METHOD|ENDPOINT|TOKEN|ADMIN|DESCRIPTION|POST PARAMS|RETURNS|
+|------|--------|-----|-----|-----------|-----------|-------|
 |GET|/oficialRegister/:oficialRegisterId|Yes|Yes|Search one specific oficial register|-|Oficial registers info|
 |GET|/oficialRegister|Yes|Yes|Search all oficial registers|-|All oficial registers|
 |PUT|/oficialRegister/:oficialRegisterId|Yes|Yes|Update one specific oficial register|-|Oficial register updated|
@@ -56,6 +58,8 @@ All routes starts with /api
 
 ### Promotion
 
+|METHOD|ENDPOINT|TOKEN|ADMIN|DESCRIPTION|POST PARAMS|RETURNS|
+|------|--------|-----|-----|-----------|-----------|-------|
 |GET|/promotion/me/promotionId|Yes|No|Search one specific promotion|-|Promotion info|
 |GET|/promotion/me|Yes|No|Search all user promotion|-|All user promotion|
 |GET|/promotion/:promotionId|Yes|Yes|Search one specific promotion|-|Promotions info|
