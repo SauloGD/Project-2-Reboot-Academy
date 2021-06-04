@@ -2,6 +2,13 @@
 
 # Check-in App
 
+To use this repositori you have to:
+
+- Fork it.
+- npm i
+- npm run dev
+- and enjoy the app :)
+
 ## Routes
 
 All routes starts with /api
