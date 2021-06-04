@@ -9,6 +9,13 @@ To use this repository you have to:
 - npm run dev
 - and enjoy the app :)
 
+## Model
+
+
+[Model]("<a href="https://ibb.co/jWRX6BM"><img src="https://i.ibb.co/NmSBVQj/Reboot-Proyect-2-Model.png" alt="Reboot-Proyect-2-Model" border="0"></a>")
+
+
+
 ## Routes
 
 All routes starts with /api
