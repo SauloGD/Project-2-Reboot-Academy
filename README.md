@@ -11,7 +11,7 @@ To use this repository you have to:
 
 ## Model
 
-![Model]("<a href="https://ibb.co/jWRX6BM"><img src="https://i.ibb.co/NmSBVQj/Reboot-Proyect-2-Model.png" alt="Reboot-Proyect-2-Model" border="0"></a>")
+("<a href="https://ibb.co/jWRX6BM"><img src="https://i.ibb.co/NmSBVQj/Reboot-Proyect-2-Model.png" alt="Reboot-Proyect-2-Model" border="0"></a>")
 
 
 
