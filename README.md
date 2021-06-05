@@ -1,8 +1,8 @@
 # Project-2-Reboot-Academy
 
-# Check-in App
+# Check-in Back-End
 This proyect tries to solve the problem of the increassing personal identification required by the Law, Official Registers, Covid Prevention, Terrorism prevetion and even nominative booking resells.
-We have designed a system to automate and add this data before check-in, send the info requiered to Official Registers and obey the law. 
+We have designed a BackEnd API to automate and add this data before check-in, send the info requiered to Official Registers and obey the law. 
 
 # Install
 To use this repository you have to:
