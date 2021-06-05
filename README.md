@@ -34,7 +34,6 @@ To use this repository you have to:
 | photo                 |  string  |    no    |      -     |   link  |        User Photo        |
 | admin                 |  boolean |    yes   |      -     |  FALSE  |  User Admin (true/false) |
 
-
 ### Establishment Collection
 
 | Field                               | Type            | Required | Validation | Default | Description        |
